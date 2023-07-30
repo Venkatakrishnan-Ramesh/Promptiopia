@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-let isConnected = false;
-export const connectToDB = async () => {
-    mongoose.set('strictQuery', true);
+let isConnected = false; // Singleton connection
+export const connectToDB = async () => { 
+    mongoose.set('strictQuery', true);  // This is to prevent mongoose from using deprecated functions
     if (isConnected) {
         console.log('=> mongoose is already connected');
         return ;
