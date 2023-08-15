@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MapReduce-Based Text Mining and Categorization System
 
-## Getting Started
+## Description
+This project leverages the power of MapReduce to perform text mining and categorization on large datasets. It involves the use of Hadoop and Python to efficiently process and analyze data, providing insights and categorizations that can be used for various applications.
 
-First, run the development server:
+## Features
+- Text Mining: Extracting valuable information from unstructured text data.
+- Categorization: Classifying text into predefined categories.
+- Scalability: Utilizing MapReduce for parallel processing, enabling handling of large datasets.
+- Analytics: Providing statistical insights from the data.
+
+## Requirements
+- Hadoop
+- Python
+
+## Installation & Setup
+1. Install Hadoop on your system following the instructions from the [official documentation](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html).
+2. Clone this repository.
+3. Place your input data in the input directory.
+
+## Usage
+Run the MapReduce job with the following command:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+hadoop jar <path-to-your-hadoop-streaming-jar> \
+-files mapper.py,reducer.py \
+-mapper mapper.py \
+-reducer reducer.py \
+-input input/* \
+-output output
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Output
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The output will be saved in the specified output directory. It will contain the categorized text in CSV format.
